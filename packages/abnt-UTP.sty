@@ -28,7 +28,9 @@
 \usepackage{textcomp}
 
 % Pacotes de citações
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf,abnt-and-type=e,abnt-etal-text=it,abnt-etal-cite=2,abnt-etal
+-list=3]
+{abntex2cite}
 
 % Formulas matematicas
 \usepackage{mdwmath}
@@ -120,8 +122,10 @@
         \vfill
         
         \begin{center}
+        %\begin{flushleft} quando à quebra de linha no título 
             {\bfseries\large\MakeUppercase{\imprimirtitulo}}
         \end{center}
+        %\end{flushleft}
         \vfill
         
         {\bfseries\large\MakeUppercase{\imprimirlocal}}
@@ -141,9 +145,11 @@
         {\bfseries\large\MakeUppercase{\imprimirautor}}
         \vspace*{8cm}
         
-        \begin{center}
+		\begin{center}
+        %\begin{flushleft} quando à quebra de linha no título
             {\bfseries\large\MakeUppercase{\imprimirtitulo}}
-        \end{center}
+		\end{center}
+        %\end{flushleft}
         \vspace*{2cm}
         
         \abntex@ifnotempty{\imprimirpreambulo}{%
@@ -200,10 +206,13 @@
 % Numeracao das paginas
 \makepagestyle{estiloutp}
 
-\makeevenhead{estiloutp}{}{}{\thepage}
-\makeoddhead{estiloutp}{}{}{\thepage}
+\makeevenhead{estiloutp}{}{}{\scriptsize{\thepage}}
+\makeoddhead{estiloutp}{}{}{\scriptsize{\thepage}}
 \makeevenfoot{estiloutp}{}{}{} 
 \makeoddfoot{estiloutp}{}{}{}
+
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\scriptsize\thepage}
 
 \renewcommand{\textual}{%
     \pagestyle{estiloutp}%
@@ -269,9 +278,9 @@
 }
 \makeatother
 
-% Arruma identação do sumário
+% Arruma indentação do sumário
 \setlength{\cftbeforechapterskip}{0em}
-\setlength{\cftlastnumwidth}{3em}
+\setlength{\cftlastnumwidth}{4em}
 \cftsetindents{chapter}{0em}{\cftlastnumwidth}
 \cftsetindents{section}{0em}{\cftlastnumwidth}
 \cftsetindents{subsection}{0em}{\cftlastnumwidth}
@@ -293,6 +302,11 @@
 % = LISTAS                                                              =
 % =                                                                     =
 % =======================================================================
+
+% -----------------------------------------------------------------------
+% LISTA DE ABREVIATURAS
+% -----------------------------------------------------------------------
+\renewcommand{\listadesiglasname}{LISTA DE SIGLAS E ACRÔNIMOS}
 
 % -----------------------------------------------------------------------
 % LISTA DE QUADROS
@@ -485,14 +499,14 @@
     commentstyle=\color{mygreen},    % comment style
     extendedchars=true,              % lets you use non-ASCII characters; for 
     frame=tb,	                   % adds a frame around the code
-    keepspaces=true,                 % keeps spaces in text, useful for keeping 
+keepspaces=true,                 % keeps spaces in text, useful for keeping
     %indentation of code (possibly needs columns=flexible)
     keywordstyle=\color{blue},       % keyword style
-    numbers=left,                    % where to put the line-numbers; possible 
+numbers=left,                    % where to put the line-numbers; possible
     numbersep=0pt,                   % how far the line-numbers are from the 
     numberstyle=\tiny\color{mygray}, % the style that is used for the 
     rulecolor=\color{black},         % if not set, the frame-color may be 
-    showspaces=false,                % show spaces everywhere adding particular 
+showspaces=false,                % show spaces everywhere adding particular
     showstringspaces=false,          % underline spaces within strings only
     showtabs=false,                  % show tabs within strings adding 
     stepnumber=1,                    % the step between two line-numbers. If 
@@ -592,9 +606,8 @@
 
 % Cria uma lista de itens
 \newenvironment{lista}{
-\begin{enumerate}[label=\alph*)]
-    \addtolength{\itemindent}{1.5cm}
-
+\begin{enumerate}[label=\alph*),leftmargin=2cm]
+    %\addtolength{\itemindent}{1.5cm}
 }{
     \end{enumerate}    
 }
