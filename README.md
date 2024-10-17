@@ -59,13 +59,11 @@ Isso irá gerar o arquivo PDF `trabalho.pdf`.
 
 Aqui estão alguns links que podem ajudar no desenvolvimento do seu trabalho:
 
-- :
-  open_book: [Normas UTP - Manual de Trabalhos Acadêmicos (2024)](https://tuiuti.edu.br/wp-content/uploads/2024/09/e-book_NT_UTP_2024-1.pdf)
+- :open_book: [Normas UTP - Manual de Trabalhos Acadêmicos (2024)](https://tuiuti.edu.br/wp-content/uploads/2024/09/e-book_NT_UTP_2024-1.pdf)
 
 - :blue_book: [ABNTex](https://www.abntex.net.br/) - Pacote LaTeX para formatação de trabalhos segundo as normas ABNT.
 
-- :
-  green_book: [LaTeX - A Document Preparation System (Livro de Lamport)](https://www.latex-project.org/help/books/latex-a-document-preparation-system/) -
+- :green_book: [Uma não tão pequena introdução ao LATEX 2ε](https://linorg.usp.br/CTAN/info/lshort/portuguese/pt-lshort.pdf) -
   O clássico livro sobre LaTeX.
 
 - :globe_with_meridians: [Overleaf](https://www.overleaf.com) - Editor LaTeX online colaborativo.
