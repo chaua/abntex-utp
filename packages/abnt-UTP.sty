@@ -1,21 +1,25 @@
-% =======================================================================
-% =                                                                     =
-% = ABNTEX - UTP                                                        =
-% =                                                                     =
-% =======================================================================
-% -----------------------------------------------------------------------
-% Author: Chaua Queirolo
-% Data:   01/07/2017
-% -----------------------------------------------------------------------
+% =================================================================================================
+% = ///////////////////////////////////////////////////////////////////////////////////////////// =
+% = ///                                                                                       /// =
+% = /// ABNTEX - UTP                                                                          /// =
+% = ///                                                                                       /// =
+% = ///////////////////////////////////////////////////////////////////////////////////////////// =
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% - Author: Chauã Queirolo
+% - Data:   01/10/2024
+% -------------------------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 
-% =======================================================================
-% =                                                                     =
-% = PACOTES                                                             =
-% =                                                                     =
-% =======================================================================
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - PACOTES                                                                                       -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
-% Configuracao da pagina
+% Configuração da página
 \usepackage[a4paper,vmargin={3.0cm,2.0cm},hmargin={3.0cm,2.0cm}]{geometry}
 
 % Pacotes básicos 
@@ -28,17 +32,20 @@
 \usepackage{textcomp}
 
 % Pacotes de citações
-\usepackage[alf,abnt-and-type=e,abnt-etal-text=it,abnt-etal-cite=2,abnt-etal
--list=3]
-{abntex2cite}
+\usepackage[
+    alf,
+    abnt-and-type=e,
+    abnt-etal-text=it,
+    abnt-etal-cite=2,
+    abnt-etal-list=3,
+    abnt-emphasize=bf
+]{abntex2cite}
+
 
 % Formulas matematicas
 \usepackage{mdwmath}
 \usepackage[cmex10]{amsmath}
 \interdisplaylinepenalty=2500
-
-% Algoritmos
-\usepackage{listings}
 
 % Sumario
 \usepackage{caption}
@@ -47,22 +54,24 @@
 % Imagens
 \usepackage[caption=false]{subfig}
 \usepackage[pdftex]{graphicx}
-\graphicspath{{imagens/}}
+\graphicspath{{img/}}           % Caminho padrão para localização das imagens
+
+% Algoritmos
+\usepackage{listings}
+\usepackage{algpseudocodex}
+
+% Tabelas
+\usepackage{colortbl}           % Permite a coloração de células
+\usepackage{multirow}
+\usepackage{multicol}
 
 % Outros pacotes 
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{microtype} 			% para melhorias de justificação
-\usepackage{color}
+\usepackage{inconsolata}
+\usepackage{setspace}
 
-\usepackage{enumitem}
-
-
-%\usepackage{footnote}
-%\usepackage{here}
-%\usepackage[hyphens]{url}
-%\usepackage{chngcntr}
-%\usepackage{setspace}
 
 % Este pacote é utilizado explicidamente aqui pois se a opção font=times
 % for utilizada com o abntex, ele vai carregar também os pacotes de fontes
@@ -72,27 +81,24 @@
 \renewcommand*\familydefault{\sfdefault}
 
 
-% =======================================================================
-% =                                                                     =
-% = CONFIGURACOES DOS PACOTES                                           =
-% =                                                                     =
-% =======================================================================
-
-% -----------------------------------------------------------------------
-% -                                                                     -
-% - GERAL                                                               -
-% -                                                                     -
-% -----------------------------------------------------------------------
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - CONFIGURAÇÃO GERAL                                                                            -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
 % Space between the lines in a table
 \renewcommand{\arraystretch}{1.5}
+\setlength{\belowbottomsep}{0.2cm}
 
 % Controle das Margens
 \sloppy
 \tolerance=9999999
 
 % O tamanho do parágrafo é dado por:
-\setlength{\parindent}{1.3cm}
+\setlength{\parindent}{1.25cm}
 
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.0cm}  % tente também \onelineskip
@@ -103,15 +109,17 @@
 \setlength{\@fptop}{5pt} % Set distance from top of page to first float
 \makeatother
 
-% =======================================================================
-% =                                                                     =
-% = CAPA E FOLHA DE ROSTO                                               =
-% =                                                                     =
-% =======================================================================
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - CAPA E FOLHA DE ROSTO                                                                         -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % Dados da capa
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \renewcommand{\imprimircapa}{%
     \begin{capa}%
         \center
@@ -135,9 +143,9 @@
     \end{capa}
 }
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % Dados da folha de rosto
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \makeatletter
 \renewcommand{\folhaderostocontent}{
     \begin{center}
@@ -175,11 +183,13 @@
 }
 \makeatother
 
-% =======================================================================
-% =                                                                     =
-% = CAPITULOS                                                           =
-% =                                                                     =
-% =======================================================================
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - CAPITULOS                                                                                     -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
 % Fontes padroes de part, chapter, section, subsection e subsubsection
 \renewcommand{\ABNTEXchapterfont}{\bfseries}
@@ -202,7 +212,6 @@
 \setlength\aftersubsecskip{.4cm}    %espaçamento entre subseção e texto
 \setlength\aftersubsubsecskip{.4cm} %espaçamento entre subseção e texto
 
-
 % Numeracao das paginas
 \makepagestyle{estiloutp}
 
@@ -221,31 +230,27 @@
     \bookmarksetup{startatroot}% 
 }
 
-% =======================================================================
-% =                                                                     =
-% = RESUMO                                                              =
-% =                                                                     =
-% =======================================================================
-
-\renewenvironment{resumo}[1][\resumoname]{%
-    \PRIVATEbookmarkthis{#1}
-    \renewcommand{\abstractnamefont}{\chaptitlefont}
-    \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
-    \begin{abstract}
-        \SingleSpacing
-}{\end{abstract}\PRIVATEclearpageifneeded}
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - RESUMO                                                                                        -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
 % Lista de palavras chave do resumo
 \newcommand{\palavraschave}[1]{\vspace{.6cm}\textbf{Palavras-chave}: #1.}
 
-% =======================================================================
-% =                                                                     =
-% = SUMARIO                                                             =
-% =                                                                     =
-% =======================================================================
+
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - Sumário                                                                                       -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
 % Configurações do sumário
-
 \renewcommand{\cftchapterfont}{\bfseries}
 \renewcommand{\cftchapterpagefont}{\bfseries}
 
@@ -279,6 +284,7 @@
 \makeatother
 
 % Arruma indentação do sumário
+
 \setlength{\cftbeforechapterskip}{0em}
 \setlength{\cftlastnumwidth}{4em}
 \cftsetindents{chapter}{0em}{\cftlastnumwidth}
@@ -288,7 +294,6 @@
 \cftsetindents{paragraph}{0em}{\cftlastnumwidth}
 \cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
 
-
 \makeatletter
 \settocpreprocessor{chapter}{%
     \let\tempf@rtoc\f@rtoc%
@@ -297,20 +302,22 @@
 }
 \makeatother
 
-% =======================================================================
-% =                                                                     =
-% = LISTAS                                                              =
-% =                                                                     =
-% =======================================================================
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - LISTAS                                                                                        -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % LISTA DE ABREVIATURAS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \renewcommand{\listadesiglasname}{LISTA DE SIGLAS E ACRÔNIMOS}
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % LISTA DE QUADROS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \newcommand{\quadroname}{QUADRO}
 \newcommand{\listofquadrosname}{Lista de quadros}
 \newcommand{\quadroautorefname}{Quadro} % PS
@@ -327,9 +334,9 @@
 
 \setfloatlocations{quadro}{hbtp}
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % LISTA DE GRAFICOS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \newcommand{\graficoname}{GRÁFICO}
 \newcommand{\listofgraficosname}{Lista de gráficos}
 \newcommand{\graficoautorefname}{Gráfico} % PS
@@ -346,9 +353,9 @@
 
 \setfloatlocations{grafico}{hbtp}
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % LISTA DE CODIGOS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \newcommand{\codigoname}{CÓDIGO}
 \newcommand{\listofcodigosname}{Lista de códigos}
 \newcommand{\codigoautorefname}{Código} % PS
@@ -365,9 +372,9 @@
 
 \setfloatlocations{codigo}{hbtp}
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % LISTA DE ALGORITMOS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \newcommand{\algoritmoname}{ALGORITMO}
 \newcommand{\listofalgoritmosname}{Lista de algoritmos}
 \newcommand{\algoritmoautorefname}{Algoritmo} % PS
@@ -384,9 +391,9 @@
 
 \setfloatlocations{algoritmo}{hbtp}
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % NOMES DAS LISTAS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 
 % Renomeia os elementos nas listas 
 \renewcommand{\cftfigurename}{\MakeUppercase{\figurename}\space}
@@ -420,16 +427,16 @@
     \@setminipage
     \fi
     \ABNTEXfontereduzida
-    \configureseparator
+    \configureseparator\vspace{0cm}
     \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida 
-    #2.}\vspace{-.5cm}
+    #2}\vspace{-.5cm}
     \endgroup}
 \makeatother
 
 
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 % COMANDOS PARA INSERIR AS LISTAS
-% -----------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------------
 \newcommand{\listadefiguras}{
     \pdfbookmark[0]{\listfigurename}{lof}
     \listoffigures*
@@ -472,53 +479,74 @@
     \cleardoublepage
 }
 
-% =======================================================================
-% =                                                                     =
-% = ALGORITMOS                                                          =
-% =                                                                     =
-% =======================================================================
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - ALGORITMOS                                                                                    -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
-%\lstset{
-%    belowcaptionskip=1\baselineskip,
-%    breaklines=true,
-%    xleftmargin=\parindent,
-%    showstringspaces=false,
-%    basicstyle=\small\ttfamily,
-%}
-
-\definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{myblue}{rgb}{0,0,0.5}
+\definecolor{mygreen}{rgb}{0,0.5,0}
+\definecolor{myorange}{rgb}{0.8,0.6,0}
 
-\lstset{ %
+\lstset{%
+    extendedchars=true,
     belowcaptionskip=1\baselineskip,
-    backgroundcolor=\color{white},   % choose the background color; you must 
-    basicstyle=\small\ttfamily,        % the size of the fonts that are 
-    breakatwhitespace=true,         % sets if automatic breaks should only 
-    breaklines=true,                 % sets automatic line breaking
-    commentstyle=\color{mygreen},    % comment style
-    extendedchars=true,              % lets you use non-ASCII characters; for 
-    frame=tb,	                   % adds a frame around the code
-keepspaces=true,                 % keeps spaces in text, useful for keeping
-    %indentation of code (possibly needs columns=flexible)
-    keywordstyle=\color{blue},       % keyword style
-numbers=left,                    % where to put the line-numbers; possible
-    numbersep=0pt,                   % how far the line-numbers are from the 
-    numberstyle=\tiny\color{mygray}, % the style that is used for the 
-    rulecolor=\color{black},         % if not set, the frame-color may be 
-showspaces=false,                % show spaces everywhere adding particular
-    showstringspaces=false,          % underline spaces within strings only
-    showtabs=false,                  % show tabs within strings adding 
-    stepnumber=1,                    % the step between two line-numbers. If 
-    stringstyle=\color{mymauve},     % string literal style
-    tabsize=2	                   % sets default tabsize to 2 spaces
+    basicstyle=\fontencoding{T1}\small\fontfamily{lmtt}\fontseries{m}\selectfont,
+    backgroundcolor=\color{white},      % choose the background color; you must 
+    breakatwhitespace=true,             % sets if automatic breaks should only 
+    breaklines=true,                    % sets automatic line breaking
+    frame=tblr,	                        % adds a frame around the code
+    keepspaces=true,                    % keeps spaces in text, useful for keeping
+                                        % indentation of code (possibly needs columns=flexible)
+    keywordstyle=\bfseries\color{mygreen},
+    commentstyle=\itshape\color{mygray},
+    identifierstyle=\color{black},
+    stringstyle=\color{myorange},
+    numbers=left,                       % where to put the line-numbers; possible
+    numbersep=0.5cm,                    % how far the line-numbers are from the 
+    numberstyle=\tiny\color{mygray},    % the style that is used for the 
+    rulecolor=\color{black},            % if not set, the frame-color may be 
+    showspaces=false,                   % show spaces everywhere adding particular
+    showstringspaces=false,             % underline spaces within strings only
+    showtabs=false,                     % show tabs within strings adding 
+    stepnumber=1,                       % the step between two line-numbers. If 
+    framextopmargin=0.1cm,
+    framexrightmargin=-0.1cm,
+    framexleftmargin=0.9cm,    
+    framexbottommargin=0.1cm, 
+    basewidth  = {.5em,.4em},
+    xleftmargin=1cm,
+    literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {ã}{{\~a}}1 {ẽ}{{\~e}}1 {ĩ}{{\~i}}1 {õ}{{\~o}}1 {ũ}{{\~u}}1
+        {Ã}{{\~A}}1 {Ẽ}{{\~E}}1 {Ĩ}{{\~I}}1 {Õ}{{\~O}}1 {Ũ}{{\~U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {Ø}{{\O}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+        {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1 
 }
 
-% =======================================================================
-% =                                                                     =
-% = LINKS                                                               =
-% =                                                                     =
-% =======================================================================
+
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - LINKS                                                                                         -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{0,0,0}
@@ -564,15 +592,20 @@ showspaces=false,                % show spaces everywhere adding particular
 }
 \makeatother
 
-% =======================================================================
-% =                                                                     =
-% = MACROS                                                              =
-% =                                                                     =
-% =======================================================================
+% =================================================================================================
+% -------------------------------------------------------------------------------------------------
+% -                                                                                               -
+% - MACROS                                                                                        -
+% -                                                                                               -
+% -------------------------------------------------------------------------------------------------
+% =================================================================================================
 
 \newcommand{\legenda}[2][]{\centering\caption{\label{#1}#2.}}
-\newcommand{\fonteautor}{\fonte{o próprio autor}}
-\newcommand{\fonteautores}{\fonte{os próprios autores}}
+\newcommand{\fonteautor}{\fonte{O autor}}
+\newcommand{\fonteautora}{\fonte{A autora}}
+\newcommand{\fonteautores}{\fonte{Os autores}}
+\newcommand{\fonteautoras}{\fonte{As autoras}}
+\newcommand{\fonteautoria}{\fonte{Autoria própria}}
 
 \newcommand{\ie}{\textit{i.e.}}
 \newcommand{\eg}{\textit{e.g.}}
@@ -604,17 +637,11 @@ showspaces=false,                % show spaces everywhere adding particular
     \addtocounter{anexoidx}{1}
 }
 
-% Cria uma lista de itens
-\newenvironment{lista}{
-\begin{enumerate}[label=\alph*),leftmargin=2cm]
-    %\addtolength{\itemindent}{1.5cm}
-}{
-    \end{enumerate}    
-}
-
-
-
-
-
-
-
+% Remove os <> da url na citação
+\makeatletter
+\@ifpackageloaded{url}{%
+\addtociteoptionlist{abnt-url-package=url}
+\def\UrlLeft{}
+\def\UrlRight{}
+\urlstyle{same}}
+\makeatother
