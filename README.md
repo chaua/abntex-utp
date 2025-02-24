@@ -72,7 +72,3 @@ Aqui estão alguns links que podem ajudar no desenvolvimento do seu trabalho:
 
 Sinta-se à vontade para sugerir melhorias ou abrir _issues_ para discutir problemas. Este projeto segue a
 licença [MIT](LICENSE).
-
----
-
-Feito com ❤️ e LaTeX por [Seu Nome].
